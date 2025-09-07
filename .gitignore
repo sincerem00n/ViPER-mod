@@ -1,0 +1,6 @@
+# Python
+__pycache__/
+
+# Dataset
+maps_test/
+maps_train/
