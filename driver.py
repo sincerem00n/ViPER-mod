@@ -241,6 +241,8 @@ def main():
                     mse_loss = nn.MSELoss()
 
                     q_values1 = dp_q_net1(*state)
+                    print(f"--------------------------------/nAction ({j}):", action)
+                    # print(f"--------------------------------/nQ values1 ({j}):", q_values1)
                     q1 = torch.gather(q_values1, 1, action)
                     q1_loss = mse_loss(q1, target_q_batch.detach()).mean()
 

@@ -16,5 +16,5 @@ model_path = f'model/{FOLDER_NAME}'
 gifs_path = f'results/gifs'
 
 NUM_TEST = 1
-SAVE_GIFS = False
+SAVE_GIFS = True
 SAVE_CSV = False

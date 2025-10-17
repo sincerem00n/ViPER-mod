@@ -16,10 +16,6 @@ def run_test():
 
     global_network.load_state_dict(checkpoint['policy_model'])
 
-    print("global network state dict")
-    for p in global_network.state_dict():
-        print(p, global_network.state_dict()[p].size())
-
     meta_agents = [Runner.remote(i) for i in range(NUM_META_AGENT)]
     weights = global_network.state_dict()
     curr_test = 0
@@ -45,8 +41,6 @@ def run_test():
 
             for job in done_jobs:
                 metrics, info = job
-                print(f"=====================================\nMetrics:", metrics)
-                print(f"Info:", info)
                 dist_history.append(metrics['travel_dist'])
                 max_dist_history.append(metrics['max_travel_dist'])
                 explored_rate_history.append(metrics['explored_rate'])
